@@ -7,7 +7,7 @@ function generate_spiral_traj(r, x_origin, y_origin, z_from, z_to, Ts, completio
 t = 0:Ts:completion_time;
 r_space = linspace (0, 1, numel (t));
 z = linspace (z_from, z_to, numel (t));
-gima
+
 for ii=1:length(r_space)
     output(ii, :) =  [r*sin(t(ii))+x_origin r*cos(t(ii))+y_origin z(ii)];
     %pause (.001)
