@@ -1,4 +1,5 @@
-function generate_spiral_traj(r, x_origin, y_origin, z_from, z_to, Ts, completion_time)
+function generate_spiral_traj(r, x_origin, y_origin, z_from, z_to, Ts, ...
+                              completion_time)
 % Generate spiral trajectory with center at [x_origin y_origin] with radius
 % r, spiralling from z_from to z_to.
 % The trajectory is generated with sampling period Ts and with duration of
@@ -8,9 +9,10 @@ t = 0:Ts:completion_time;
 r_space = linspace (0, 1, numel (t));
 z = linspace (z_from, z_to, numel (t));
 
-for ii=1:length(r_space)
+
+output = zeros(length(r_space), 3);
+for ii=1:length(output)
     output(ii, :) =  [r*sin(t(ii))+x_origin r*cos(t(ii))+y_origin z(ii)];
-    %pause (.001)
 end
 
 plot3(output(:,1), output(:,2), output(:,3));
